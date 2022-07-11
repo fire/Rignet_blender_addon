@@ -3,22 +3,22 @@ Adopting https://github.com/zhan-xu/RigNet neural network we created an addon in
 
 We strongly advise to use the latest version of blender available in order to use the addons
 
-1)Setup of Anaconda that emulates our environment on Windows 64x
 --------
-Install Anaconda
-
-Open anaconda navigator interface
-
-Go into environments
-
-Create a new environment with python 3.7
-
-Press the play button next to the created environment, open terminal
 
 ```
+scoop install micromamba
+
+micromamba create -n rignet -c conda-forge
+
+micromamba shell hook --shell=cmd.exe
+
+`C:\\Users\\USERNAME\\micromamba\\condabin\\mamba_hook.bat`
+
+micromamba activate rignet
+
 pip install numpy==1.20.2
 
-pip install scipy==1.7.0
+pip install scipy==1.8.0
 
 pip install matplotlib==3.4.2
 
@@ -32,7 +32,7 @@ pip install rtree==0.9.7
 
 pip install trimesh[easy]
 
-conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+micromamba install pytorch torchvision cudatoolkit=11.6 -c pytorch -c conda-forge
 ```
 
 Minimize the console window, check on Anaconda the version of pytorch and make sure it's 1.7.1 or above after you clicked the button "update index". When we explicit the version within the "pip install" command for some reason it generates errors lately. According to the version installed, simply modify the four following pip installs with your current version "torch-#.#.#+cu101.html":
